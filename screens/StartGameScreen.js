@@ -2,6 +2,7 @@ import { Alert, StyleSheet, TextInput, View } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import { useState } from "react";
 import Colors from "../constants/colors";
+import GameScreen from "./GameScreen";
 function StartGameScreen({ onPickNumber }) {
   const [enteredNumber, setEntetedNumber] = useState("");
   function numberInputHandler(enteredText) {
@@ -25,6 +26,7 @@ function StartGameScreen({ onPickNumber }) {
   }
   return (
     <View style={styles.inputContainer}>
+      
       <TextInput
         style={styles.numberInput}
         maxLength={2}
@@ -42,6 +44,7 @@ function StartGameScreen({ onPickNumber }) {
           <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
         </View>
       </View>
+     
     </View>
   );
 }
