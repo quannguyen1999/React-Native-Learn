@@ -1,0 +1,25 @@
+import { StyleSheet, Text, View } from "react-native";
+import Colors from "../constants/colors";
+
+function InstructionText({children}) {
+    return <Text style={styles.inputContainer}>{children}</Text>
+}
+
+export default InstructionText;
+
+const styles = StyleSheet.create({
+   inputContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 100,
+    marginHorizontal: 24,
+    padding: 16,
+    backgroundColor: Colors.primary800,
+    borderRadius: 8,
+    elevation: 4, //This work like css rounded-full
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6, //SHow how much shadow expand
+    shadowOpacity: 0.25,
+  },
+})

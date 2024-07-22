@@ -4,6 +4,7 @@ import { useState } from "react";
 import Colors from "../constants/colors";
 import GameScreen from "./GameScreen";
 import Title from "../components/Title";
+import Card from "../components/Card";
 function StartGameScreen({ onPickNumber }) {
   const [enteredNumber, setEntetedNumber] = useState("");
   function numberInputHandler(enteredText) {
@@ -28,7 +29,7 @@ function StartGameScreen({ onPickNumber }) {
   return (
     <View style={styles.rootContainer}>
       <Title>Guess my number</Title>
-      <View style={styles.inputContainer}>
+      <Card >
         <TextInput
           style={styles.numberInput}
           maxLength={2}
@@ -46,7 +47,7 @@ function StartGameScreen({ onPickNumber }) {
             <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
           </View>
         </View>
-      </View>
+      </Card>
     </View>
   );
 }
@@ -58,20 +59,20 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 100,
   },
-  inputContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 100,
-    marginHorizontal: 24,
-    padding: 16,
-    backgroundColor: Colors.primary800,
-    borderRadius: 8,
-    elevation: 4, //This work like css rounded-full
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6, //SHow how much shadow expand
-    shadowOpacity: 0.25,
-  },
+  // inputContainer: {
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   marginTop: 100,
+  //   marginHorizontal: 24,
+  //   padding: 16,
+  //   backgroundColor: Colors.primary800,
+  //   borderRadius: 8,
+  //   elevation: 4, //This work like css rounded-full
+  //   shadowColor: "black",
+  //   shadowOffset: { width: 0, height: 2 },
+  //   shadowRadius: 6, //SHow how much shadow expand
+  //   shadowOpacity: 0.25,
+  // },
   numberInput: {
     height: 50,
     width: 50,

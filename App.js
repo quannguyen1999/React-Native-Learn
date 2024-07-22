@@ -13,7 +13,7 @@ import GameScreen from "./screens/GameScreen";
 import Colors from "./constants/colors";
 import GameOverScreen from "./screens/GameOverScreen";
 export default function App() {
-  const [userNumber, setUserNumber] = useState(2);
+  const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(false);
 
   function pickedNumberHandler(pickedNumber) {
