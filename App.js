@@ -15,30 +15,49 @@ import GameOverScreen from "./screens/GameOverScreen";
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(false);
-
+  const [guessRoundeds, setGuessRoundeds] = useState(0);
   function pickedNumberHandler(pickedNumber) {
     setUserNumber(pickedNumber);
     setGameIsOver(false);
   }
 
-  
-  function gameOverHandler() {
+  function gameOverHandler(numberOfRounds) {
     setGameIsOver(true);
+    setGuessRoundeds(numberOfRounds);
   }
 
+  function startNewGame() {
+    setUserNumber(null);
+    setGuessRoundeds(0);
+  }
 
-  let screen = <StartGameScreen onPickNumber={pickedNumberHandler} onGameOver={gameOverHandler}/>;
+  let screen = (
+    <StartGameScreen
+      onPickNumber={pickedNumberHandler}
+      onGameOver={gameOverHandler}
+    />
+  );
   if (userNumber) {
-    screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler}/>;
+    screen = (
+      <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />
+    );
   }
 
-  if(gameIsOver && userNumber){
-    screen = <GameOverScreen />;
+  if (gameIsOver && userNumber) {
+    screen = (
+      <GameOverScreen
+        userNumber={userNumber}
+        roundsNumber={guessRoundeds}
+        onStartNewGame={startNewGame}
+      />
+    );
   }
-
 
   return (
-    <LinearGradient colors={[Colors.primary700, Colors.accent500]} style={styles.rootScreen}>
+    <LinearGradient
+      colors={[Colors.primary700, Colors.accent500]}
+      style={styles.rootScreen}
+    >
       <ImageBackground
         source={require("./assets/images/main.png")}
         resizeMode="cover"
